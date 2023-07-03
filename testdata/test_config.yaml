@@ -1,0 +1,5 @@
+channel_pattern: (#[a-z]+_[a-z_]{5,})
+directories:
+  - ../testdata
+github_org: Sixt
+dry_run: true

@@ -1,0 +1,5 @@
+channel_pattern: (#[a-z]+_[a-z_]{5,}) 
+directories: 
+  - /Users/me/go/src/github/MyOrg
+github_org: MyOrg 
+dry_run: false 

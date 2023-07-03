@@ -1,0 +1,78 @@
+variableNamePatterns:
+variableNameExclusionPattern: 
+xmlAttributeNameExclusionPattern: 
+valueMatchPatterns:
+  - name: Slack WebHook
+    pattern: https:\/\/hooks\.slack\.com\/services\/T[a-zA-Z0-9_]{8}\/B[a-zA-Z0-9_]{8,10}\/[a-zA-Z0-9_]{24}
+fullTextValueExcludePatterns:
+  - "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX"
+variableValueExcludePatterns:
+minPasswordLength: 10 #don't consider anything shorter than this as a possible credential
+excludeTests: false
+testDirectories:
+  - test
+  - tests
+  - testdata
+  - example
+ignoreFiles: #files or directories to skip
+  - vendor
+  - .git
+  - .idea
+excludeComments: false
+scanTypes: 
+  - generic
+genericFileExtensions:
+  # text files
+  - txt
+  - data
+  - dat
+  - md
+  - json
+  - yml
+  - yaml
+  - xml
+
+  #config files
+  - local
+  - conf
+  - config
+  - dist
+  - ini
+  - properties
+
+  #code
+  - py
+  - js
+  - ts
+  - coffee
+  - html
+  - xhtml
+  - rb
+  - kt
+  - bat
+  - groovy
+  - gradle
+  - tf
+  - sql
+  - sqlite
+  - twig
+  - go
+  - java
+  - swift
+  - cpp
+  - c
+  - h
+  - hpp
+  - php
+  - sh
+
+  #other
+  - csv
+  - temp
+  - dump
+  - swagger
+  - out
+  - log
+genericCodeFileExtensions:
+disableOutputColors: false
+verbose: false
