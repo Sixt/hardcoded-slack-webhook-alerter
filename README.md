@@ -22,3 +22,5 @@ The following configuration should be set in config/config.yaml:
 |directories|A list of directories to scan for hard-coded Slack webhooks|A list of strings|
 |github_org|The name of your Github organization (used for building links)|A string|
 |dry_run|When true, it'll output all the logs without actually sending anything to Slack|Boolean|
+
+This tool is assuming that you the scan paths you provide contain GitHub repositories at the top level, each named after the repository. For example if you provide the directory "/Users/me/go", it expects each subdirectory to be a Git repo (this is how it decides the repository name and how it builds the GitHub links). If you don't structure things this way, the scanner will still find results, but the links won't be valid.
