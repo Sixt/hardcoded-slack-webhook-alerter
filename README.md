@@ -5,8 +5,8 @@ This tool can be used to scan for hardcoded Slack webhooks and send an alert to 
 1. It combs all repos locally cloned in the specified directories and collects the Slack webhooks.
 2. Then for each file where it found a webhook, it checks if it finds any slack channels hardcoded as well and links them to the webhook/repo combination.
 3. Then it iterates all the webhook/repo combos it found
-a. If there's no channel associated with it, then it just sends a payload to the webhook and lets it go to whatever default channel is configured.
-b. If it does have channels associated with the webhook/repo, it sends the payload to each of them.
+    - If there's no channel associated with it, then it just sends a payload to the webhook and lets it go to whatever default channel is configured.
+    - If it does have channels associated with the webhook/repo, it sends the payload to each of them.
 
 ### Usage
 
@@ -23,4 +23,4 @@ The following configuration should be set in config/config.yaml:
 |github_org|The name of your Github organization (used for building links)|A string|
 |dry_run|When true, it'll output all the logs without actually sending anything to Slack|Boolean|
 
-This tool is assuming that you the scan paths you provide contain GitHub repositories at the top level, each named after the repository. For example if you provide the directory "/Users/me/go", it expects each subdirectory to be a Git repo (this is how it decides the repository name and how it builds the GitHub links). If you don't structure things this way, the scanner will still find results, but the links won't be valid.
+This tool is assuming that you the scan paths you provide contain GitHub repositories at the top level, each named after the repository. For example if you provide the directory "/Users/me/go", it expects each subdirectory to be a Git repo (this is how it decides the repository name and how it builds the GitHub links). If you don't structure things this way, the scanner will still find results, but the links won't be valid. Also note that when building the links, it's using `master`, which may not always be correct.
