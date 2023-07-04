@@ -5,7 +5,7 @@ valueMatchPatterns:
   - name: Slack WebHook
     pattern: https:\/\/hooks\.slack\.com\/services\/T[a-zA-Z0-9_]{8}\/B[a-zA-Z0-9_]{8,10}\/[a-zA-Z0-9_]{24}
 fullTextValueExcludePatterns:
-  - "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX"
+  - "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXX"
 variableValueExcludePatterns:
 minPasswordLength: 10 #don't consider anything shorter than this as a possible credential
 excludeTests: false

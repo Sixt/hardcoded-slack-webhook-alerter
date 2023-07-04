@@ -15,6 +15,7 @@ type Data struct {
 	Channel string
 	Repo    string
 	URL     string
+	Message string
 }
 
 // SlackClient is used to send messages to slack
@@ -22,14 +23,16 @@ type SlackClient struct {
 	httpClient *http.Client
 	dryRun     bool
 	payload    *template.Template
+	message    string
 }
 
 // NewSlackClient returns a new slack client
-func NewSlackClient(dryRun bool) *SlackClient {
+func NewSlackClient(dryRun bool, message string) *SlackClient {
 	return &SlackClient{
 		httpClient: &http.Client{},
 		dryRun:     dryRun,
 		payload:    template.Must(template.New("payload").Parse(payload)),
+		message:    message,
 	}
 }
 
@@ -62,7 +65,7 @@ func (s *SlackClient) send(webhook string, data Data) error {
 
 	var b bytes.Buffer
 	w := bufio.NewWriter(&b)
-	s.payload.Execute(w, Data{Channel: data.Channel, Repo: data.Repo, URL: data.URL})
+	s.payload.Execute(w, Data{Channel: data.Channel, Repo: data.Repo, URL: data.URL, Message: s.message})
 	w.Flush()
 
 	req, _ := http.NewRequest(http.MethodPost, webhook, bufio.NewReader(&b))
@@ -86,7 +89,7 @@ const payload = `{
 		  "pretext":"<!channel>",
 		  "title":"[Alert] HARD-CODED SLACK WEBHOOK",
 		  "title_link":"https://www.sixt.tech/slack-webhook-security",
-		  "text":"This message was sent using a hardcoded webhook found in {{.Repo}}: {{.URL}}\n\nPlease update the code to use inject webhooks instead using k8s secrets or the configuration service instead.",
+		  "text":"This message was sent using a hardcoded webhook found in {{.Repo}}: {{.URL}}\n\n{{.Message}}",
 		  "color":"#d63232",
 	   }
 	]

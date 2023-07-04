@@ -18,7 +18,7 @@ func main() {
 	scanner := scanner.New(conf)
 	scanner.Scan()
 
-	client := client.NewSlackClient(conf.DryRun)
+	client := client.NewSlackClient(conf.DryRun, conf.Message)
 
 	//for each result, send a request to the webhook
 	for _, res := range scanner.Results {

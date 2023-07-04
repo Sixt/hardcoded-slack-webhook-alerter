@@ -14,6 +14,7 @@ type Config struct {
 	ChannelPattern string   `yaml:"channel_pattern"`  //used to extract the slack channel from the file
 	Directories    []string `yaml:"directories,flow"` // Directories is the list of paths to scan for hardcoded credentials
 	GithubOrg      string   `yaml:"github_org"`
+	Message        string   `yaml:"message"`
 	DryRun         bool     `yaml:"dry_run"`
 }
 
