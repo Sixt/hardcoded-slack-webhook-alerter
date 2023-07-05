@@ -3,8 +3,8 @@
 # Put a list of paths here where you keep your git repos
 directories=(
     "/Users/me/go/"
-	"/Users/me/java"
-	"/Users/me/php/src"
+    "/Users/me/java"
+    "/Users/me/php/src"
 )
 
 gitPullAll() {
