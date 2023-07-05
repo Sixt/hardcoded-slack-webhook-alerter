@@ -26,3 +26,6 @@ The following configuration should be set in config/config.yaml:
 Exclusions for channels and webhooks can be added to `fullTextValueExcludePatterns` in `scanner/root_config.yaml`.
 
 This tool is assuming that you the scan paths you provide contain GitHub repositories at the top level, each named after the repository. For example if you provide the directory "/Users/me/go", it expects each subdirectory to be a Git repo (this is how it decides the repository name and how it builds the GitHub links). If you don't structure things this way, the scanner will still find results, but the links won't be valid. Also note that when building the links, it's using `master`, which may not always be correct.
+
+### Scripts
+Since this tool requires you to have a lot of repositories cloned and updated, there are a few helpful scripts included in this repository. In `scripts/fetch-services.sh`, you can add a list of GitHub repos and your organization name, and it'll clone all of them into the current directory. You can update the list of directories in `scripts/update-all-git-repos.sh` to do a git pull of master/main in every repo you have cloned.
