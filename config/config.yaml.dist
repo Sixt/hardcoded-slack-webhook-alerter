@@ -2,4 +2,5 @@ channel_pattern: (#[a-z]+_[a-z_]{5,})
 directories: 
   - /Users/me/go/src/github/MyOrg
 github_org: MyOrg 
+message: Please update the code to inject webhooks at build or runtime.
 dry_run: false 

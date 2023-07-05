@@ -25,6 +25,5 @@ func main() {
 		if err := client.SendMessage(res); err != nil {
 			log.Println(err.Error())
 		}
-
 	}
 }
