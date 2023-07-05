@@ -2,21 +2,21 @@
 
 # Put a list of repos to clone here
 services=(
-"MyRepoOne"
-"SomeOtherRepo"
-"com.service.example"
+	"MyRepoOne"
+	"SomeOtherRepo"
+	"com.service.example"
 )
 
 # Replace this with your GitHub organization/user name
 org="MyOrg"
 
 fetchService() {
-    printf "\n###### Fetching $1 #####\n"
-	
+	printf "\n###### Fetching $1 #####\n"
+
 	#clone the repo if it's not already there
 	[ ! -d $1 ] && git clone git@github.com:$org/$1.git 
 
-    echo ""
+	echo ""
 }
 
 for service in "${services[@]}"; do

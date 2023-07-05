@@ -24,6 +24,6 @@ gitPullAll() {
 }
 
 for dir in "${directories[@]}"; do
-	cd $dir
+    cd $dir
     gitPullAll
 done
